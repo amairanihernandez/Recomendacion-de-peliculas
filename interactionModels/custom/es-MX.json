@@ -1,0 +1,107 @@
+{
+  "interactionModel": {
+    "dialog": {
+      "intents": [
+        {
+          "slots": [
+            {
+              "name": "category",
+              "elicitationRequired": false,
+              "type": "AMAZON.FirstName",
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ],
+          "name": "CategoryIntent",
+          "delegationStrategy": "ALWAYS",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.864041157619"
+          }
+        }
+      ],
+      "delegationStrategy": "SKILL_RESPONSE"
+    },
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "slots": [],
+          "name": "HelloWorldIntent",
+          "samples": [
+            "hola",
+            "como estás",
+            "di hola mundo",
+            "di hola",
+            "hola mundo"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "category",
+              "type": "AMAZON.FirstName"
+            }
+          ],
+          "name": "CategoryIntent",
+          "samples": [
+            "Recomienda películas de {category}",
+            "Películas de {category}",
+            "Películas {category}",
+            "de {category}",
+            "recomiendame peliculas de {category}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "acción"
+              }
+            },
+            {
+              "name": {
+                "value": "comedia"
+              }
+            },
+            {
+              "name": {
+                "value": "drama"
+              }
+            }
+          ],
+          "name": "CATEGORY"
+        }
+      ],
+      "invocationName": "recomendacion de peliculas"
+    },
+    "prompts": [
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "¿Estás buscando películas de {category}, es correcto?"
+          }
+        ],
+        "id": "Confirm.Intent.864041157619"
+      }
+    ]
+  }
+}
